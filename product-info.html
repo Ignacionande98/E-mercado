@@ -36,13 +36,56 @@
       </div>
     </div>
   </nav>
-  <main>
+  <main id="main-product-info">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <p id="productName"></p>
+      <hr>
+      <p id="productPrice"></p>
+      <p id="productDescription"></p>
+      <p id="productCategory"></p>
+      <p id="productSoldCount"></p>
+      <div id="productImages"></div>
+  </div>
     </div>
   </main>
+
+  <br>
+  
+     <section class="container comments-section">
+      <h3>Comentarios</h3>
+
+    <div id="productComments">
+    </div>
+
+    <hr> 
+
+    <div class = addYourComment>
+      <h6 id="titleForm">Escribi tu comentario</h5>
+
+        <form id="formComments" action="procesar_formulario.php" method="post">
+          <label class="opinion" for="comment">Tu opinion:</label>
+          
+          <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
+          
+          
+          <label class="opinion" for="punctuation">Puntuación:</label>
+          
+          <select id="punctuation" name="punctuation" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+          </select>
+          
+  
+          <button id="commentButton" type="submit">Enviar</button>
+      </form> 
+    </div>
+  </section>
+  
+ 
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
