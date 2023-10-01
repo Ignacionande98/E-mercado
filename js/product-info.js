@@ -28,13 +28,59 @@ document.addEventListener("DOMContentLoaded", function () {
         "productSoldCount"
       ).innerHTML = `<b>Vendidos</b> <br>${data.soldCount}`;
 
-      const imagesDiv = document.getElementById("productImages");
-      imagesDiv.innerHTML = `<b>Imágenes ilustrativas</b><br>`;
+      // CAROUSEL JS CODE
 
-      data.images.forEach((image) => {
+      const carouselInner = document.querySelector(".carousel-inner");
+
+      // Itera sobre las img y le agrega la clase del boostrap
+      data.images.forEach((image, index) => {
+        const carouselItem = document.createElement("div");
+        carouselItem.classList.add("carousel-item");
+
+        // La primera imagen debe tener la clase "active" para mostrarla al cargar el carrusel
+        if (index === 0) {
+          carouselItem.classList.add("active");
+        }
+
         const imgElement = document.createElement("img");
         imgElement.src = image;
-        imagesDiv.appendChild(imgElement);
+        imgElement.classList.add("d-block", "w-100"); // agrega clase de boostrap
+
+        carouselItem.appendChild(imgElement);
+        carouselInner.appendChild(carouselItem);
+      });
+
+      // Codigo anterior de usar el carousel
+
+      // const imagesDiv = document.getElementById("productImages");
+      // imagesDiv.innerHTML = `<b>Imágenes ilustrativas</b><br>`;
+
+      // data.images.forEach((image) => {
+      //   const imgElement = document.createElement("img");
+      //   imgElement.src = image;
+      //   imagesDiv.appendChild(imgElement);
+      // });
+
+      // Entrega 4.1
+      const related = document.getElementById("related");
+
+      data.relatedProducts.forEach((product) => {
+        const divProdRel = document.createElement("div");
+
+        const imgProdRel = document.createElement("img");
+        imgProdRel.src = product.image;
+        related.appendChild(divProdRel);
+        divProdRel.appendChild(imgProdRel);
+
+        divProdRel.innerHTML += `<br>${product.name}`;
+
+        // Reutilice el código de products.js
+        divProdRel.addEventListener("click", function () {
+          window.location.href = "product-info.html";
+
+          localStorage.setItem("productID", product.id);
+        });
+        // Entrega 4.1
       });
     })
     .catch((error) => {
