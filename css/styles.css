@@ -5,6 +5,16 @@
   font-family: 'Raleway', serif !important;
 }
 
+/*carousel*/
+
+
+#carouselExampleControls {
+  border: 1px solid #ccc; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  width: 50%;
+  height: auto;
+}
+
 #productComments {
   margin-top: 30px;
   max-width: 500px;
@@ -12,6 +22,12 @@
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 50%;
   gap: 0.5rem; */
+}
+
+#related div {
+  display: inline-block;
+  margin-right: 20px; 
+  text-align: center; 
 }
 
 .comment {
@@ -53,11 +69,15 @@
 
 /* Entrega 3 */
 
+.rounded-fill {
+  background-color: white;
+}
+
 #main-product-info {
   display: inline;
 }
 
-#productImages img {
+#productImages img, #related img {
   width: 250px;
   margin: 5px 10px 5px 0;
   border: gray 1px solid;
