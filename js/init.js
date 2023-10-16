@@ -68,24 +68,31 @@ session.addEventListener('click', function() {
 
   localStorage.removeItem('username');
   localStorage.removeItem('password');
+  localStorage.removeItem('cart');
   window.location.href = "login.html";
-
 })
 
-// ENTREGA 4.2 DROPDOWN
+          //   ENTREGA 4.3 
 
-// // Creo link, agrego la calse y guardo la info de savedusername
-// const userInfo = document.createElement("a"); 
-// userInfo.classList.add("nav-link");
-// userInfo.innerHTML = savedUsername; 
+          const moonButton = document.getElementById("moonButton");
 
-// Creo un li y le agrego clase y luego agrego el a creado antes al li
-// const li = document.createElement("li"); 
-// li.classList.add("nav-item"); 
-// li.appendChild(userInfo);
-
-// // Obtengo los datos de la barra de navegacion y obtengo la lista dentro, finalmente agrego el li al ul
-// const navbar = document.getElementById("navbarNav"); 
-// const ul = navbar.querySelector(".navbar-nav"); 
-
-// ul.appendChild(li); 
+          const darkMode = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "dark");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill"); //  cambia el icono 
+          };
+        
+          const lightMode = () => {
+            document.querySelector("body").setAttribute("data-bs-theme", "light");
+            document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+          };
+        
+          const changeTheme = () => {
+            const theme = document.querySelector("body").getAttribute("data-bs-theme");
+            if (theme === "light") {
+              darkMode();
+            } else {
+              lightMode();
+            }
+          };
+        
+          moonButton.addEventListener("click", changeTheme);
