@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("productName").innerHTML = data.name;
       document.getElementById(
         "productPrice"
-      ).innerHTML = `<b>Precio</b> <br>${data.currency} ${data.cost}`;
+      ).innerHTML = `<br> ${data.currency} ${data.cost}`;
       document.getElementById(
         "productDescription"
       ).innerHTML = `<b>Descripción</b> <br>${data.description}`;
@@ -49,17 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
         carouselItem.appendChild(imgElement);
         carouselInner.appendChild(carouselItem);
       });
-
-      // Codigo anterior de usar el carousel
-
-      // const imagesDiv = document.getElementById("productImages");
-      // imagesDiv.innerHTML = `<b>Imágenes ilustrativas</b><br>`;
-
-      // data.images.forEach((image) => {
-      //   const imgElement = document.createElement("img");
-      //   imgElement.src = image;
-      //   imagesDiv.appendChild(imgElement);
-      // });
 
       // Entrega 4.1
       const related = document.getElementById("related");
@@ -202,4 +191,35 @@ document.addEventListener("DOMContentLoaded", function () {
     // Limpia el formulario
     form.reset();
   });
+
+  // Entrega 5 desafiate
+  
+  document.getElementById("buyBtn").addEventListener("click", function () {
+    const name = document.getElementById("productName").textContent;
+    const price = document.getElementById("productPrice").textContent;
+    const img = document.querySelector(".carousel-inner img").src;
+  
+    // llama el carrito actual del almacenamiento local o crea uno vacio si no existe
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+    const exists = cart.find((product) => product.name === name); 
+  
+    if (exists) {
+      exists.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        img: img,
+        quantity: 1,
+      });
+    }
+  
+    // Guarda el carrito actualizado en el almacenamiento local
+    localStorage.setItem("cart", JSON.stringify(cart));
+  
+    // Redirige a la página del carrito
+    window.location.href = "cart.html";
+  });
+  
 });
