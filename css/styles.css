@@ -9,13 +9,23 @@
   margin-right: 50px;
 }
 
+/* Entrega 6.1 */
+
+.finalPrices {
+  text-align: right;
+}
+
+#totalPrice {
+  font-weight: bold;
+}
+
 /* Entrega 5.1*/
 
 #descVenta ul {
   list-style-type: none;
   padding: 0px; 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 1fr;
 }
 
 .centrar {
@@ -25,7 +35,7 @@
 .divCartN {
   height: 60px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
   border: 0.5px solid black;
   margin-top: 20px;
   align-items: center;
@@ -610,6 +620,20 @@ a.custom-card:hover {
   }
   .form-control {
     font-size: 14px;
+  }
+
+
+  #compraExitosa {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Para asegurarse de que esté en la parte superior de otros elementos */
+    background-color: #28a745; /* Color de fondo verde (puedes ajustarlo) */
+    color: #fff; /* Color del texto (puedes ajustarlo) */
+    padding: 10px; /* Espaciado interno (ajusta según tu diseño) */
+    border-radius: 5px; /* Bordes redondeados (ajusta según tu diseño) */
+    display: none;
   }
  
 }
