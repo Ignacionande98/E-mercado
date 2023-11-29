@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cont.appendChild(article);
   });
 
+  const url = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
+
   async function fetchAndDisplayProduct(url) {
     try {
       const response = await fetch(url);
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  fetchAndDisplayProduct(CART_INFO_URL);
+  fetchAndDisplayProduct(url);
 
   function createCartItem(product) {
     const article = document.createElement("div");
@@ -286,18 +288,6 @@ document.addEventListener("DOMContentLoaded", () => {
         corner.value.trim() !== "" &&
         hasZeroArticles
       ) {
-        const fetchBody = {
-          user: localStorage.getItem('username'),
-          cartItems: JSON.parse(localStorage.getItem('cart'))
-        }
-        fetch(CART_BUY_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'access': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzAxMDM0ODk3fQ.cc44E8Ns0bOZeMQSx-0QX7j-3xPrN6xxI-FhRoE2R7g'
-          },
-          body: JSON.stringify(fetchBody)
-        })
         // Alerta modal con bootstrap
         document.getElementById("exampleModal").classList.add("fade");
         document.getElementById("exampleModal").style.display = "block";
